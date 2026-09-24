@@ -1,5 +1,3 @@
-import * as THREE from './assets/js/three.module.min.js';
-
 const { gsap, ScrollTrigger } = window;
 
 const $ = (s, scope=document) => scope.querySelector(s);
@@ -11,7 +9,8 @@ $('#year').textContent = new Date().getFullYear();
 /* Theme */
 const themeToggle = $('#themeToggle');
 const themeMeta = $('meta[name="theme-color"]');
-const savedTheme = localStorage.getItem('nazmul-theme');
+let savedTheme = null;
+try { savedTheme = localStorage.getItem('nazmul-theme'); } catch (_) {}
 if (savedTheme === 'light') document.body.classList.add('light');
 
 function syncThemeUI(){
@@ -25,7 +24,7 @@ syncThemeUI();
 themeToggle.addEventListener('click', () => {
   document.documentElement.classList.add('theme-changing');
   document.body.classList.toggle('light');
-  localStorage.setItem('nazmul-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  try { localStorage.setItem('nazmul-theme', document.body.classList.contains('light') ? 'light' : 'dark'); } catch (_) {}
   syncThemeUI();
   clearTimeout(themeToggle._timer);
   themeToggle._timer = setTimeout(() => document.documentElement.classList.remove('theme-changing'), 700);
@@ -94,46 +93,9 @@ addEventListener('resize', onScroll);
 onScroll();
 
 /* Reveal */
-if (gsap && !reduceMotion) {
+if (gsap && ScrollTrigger && !reduceMotion) {
   gsap.registerPlugin(ScrollTrigger);
   $$('.section-heading,.project-card,.gig-card,.about-grid,.contact-inner').forEach(el => {
     gsap.from(el, {opacity:0, y:28, duration:.8, ease:'power3.out', scrollTrigger:{trigger:el,start:'top 88%',once:true}});
   });
-}
-
-/* Ambient Three.js object */
-if (!reduceMotion) {
-  const canvas = $('#webgl');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(48, innerWidth/innerHeight, .1, 100);
-  camera.position.set(0,0,7);
-  const renderer = new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'high-performance'});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
-  renderer.setSize(innerWidth,innerHeight);
-
-  const pointsGeometry = new THREE.BufferGeometry();
-  const count = innerWidth < 700 ? 360 : 700;
-  const pos = new Float32Array(count*3);
-  for(let i=0;i<count;i++){
-    pos[i*3]=(Math.random()-.5)*16;
-    pos[i*3+1]=(Math.random()-.5)*10;
-    pos[i*3+2]=(Math.random()-.5)*8;
-  }
-  pointsGeometry.setAttribute('position',new THREE.BufferAttribute(pos,3));
-  scene.add(new THREE.Points(pointsGeometry,new THREE.PointsMaterial({color:0x79cfff,size:.012,transparent:true,opacity:.45})));
-
-  addEventListener('resize',()=>{
-    camera.aspect=innerWidth/innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
-    renderer.setSize(innerWidth,innerHeight);
-  });
-
-  function tick(){
-    renderer.render(scene,camera);
-    requestAnimationFrame(tick);
-  }
-  tick();
-} else if (reduceMotion) {
-  $('#webgl').style.display='none';
 }

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Nazmul Islam Fahim — n8n and AI automation portfolio featuring practical workflow systems and API integrations.">
+  <meta name="theme-color" content="#030814">
+  <title>Nazmul Islam Fahim — AI Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="loader" id="loader" aria-live="polite">
+    <div class="loader__inner">
+      <p class="loader__eyebrow">PORTFOLIO SYSTEM</p>
+      <h1>Initializing Nazmul's System</h1>
+      <p class="loader__status" id="loadText">Building automation world… 0%</p>
+      <div class="loader__bar" aria-hidden="true"><i id="bar"></i></div>
+      <button class="loader__enter" id="start" type="button" disabled>ENTER SYSTEM</button>
+    </div>
+  </div>
+
+  <canvas class="webgl" id="webgl" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scroll-progress" id="progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Nazmul Islam Fahim — home">NAZMUL<span>.</span></a>
+    <div class="header-actions">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#top" data-nav="home">HOME</a><i></i>
+        <a href="#systems">PORTFOLIO</a><i></i>
+        <a href="#gigs">GIG</a><i></i>
+        <a href="#about">ABOUT</a><i></i>
+        <a href="#contact">CONTACT</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-photo-wrap">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <img src="assets/nazmul-portrait.png" class="hero-photo" alt="Nazmul Islam Fahim">
+      </div>
+      <div class="hero-copy">
+        <p class="kicker">AI AUTOMATION SPECIALIST / N8N</p>
+        <h1 id="hero-title">N<span class="hero-letter hero-a1">A</span><span class="hero-letter hero-z">Z</span><span class="hero-letter hero-m1">M</span><span class="hero-letter hero-u1">U</span><span class="hero-letter hero-l1">L</span><span class="hero-outline">IS<span class="hero-letter hero-l">L</span><span class="hero-letter hero-a2">A</span><span class="hero-letter hero-m2">M</span> FAHIM</span></h1>
+        <div class="hero-bottom">
+          <p>I design practical automation systems that connect tools, remove repetitive work, and keep people in control where decisions matter.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section portfolio-section" id="systems" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">01 / PORTFOLIO</p>
+          <h2 id="portfolio-title">Featured automation projects</h2>
+          <p class="section-intro">A practical recruitment workflow designed to reduce repetitive hiring work while keeping HR decisions human-controlled.</p>
+        </div>
+
+        <article class="project-card hover-pop">
+          <header class="project-head">
+            <div>
+              <p class="project-type">SELF-INITIATED PORTFOLIO PROJECT</p>
+              <h3>HR Recruitment Automation with n8n</h3>
+            </div>
+            <span class="project-index">PROJECT 01</span>
+          </header>
+
+          <p class="project-summary">An end-to-end recruitment automation connecting candidate intake, experience-based routing, HR decisions, status tracking, and automated communication in one n8n workflow.</p>
+
+          <div class="project-columns">
+            <div>
+              <p class="mini-label">WORKFLOW INCLUDES</p>
+              <ul class="feature-list">
+                <li>Candidate data collection through Google Forms</li>
+                <li>Automatic candidate processing and categorization</li>
+                <li>Experience-based data routing</li>
+                <li>Organized candidate records in Google Sheets</li>
+                <li>Real-time Telegram notifications for HR</li>
+                <li>SHORTLIST and REJECT decision handling</li>
+                <li>Automated Gmail communication</li>
+                <li>Candidate status and decision tracking</li>
+              </ul>
+            </div>
+            <div class="challenge-solution">
+              <div>
+                <p class="mini-label">CHALLENGE</p>
+                <p>Recruitment involved repetitive steps across collecting applications, organizing candidate information, notifying HR, recording decisions, and communicating updates.</p>
+              </div>
+              <div>
+                <p class="mini-label">SOLUTION</p>
+                <p>The workflow connects these steps in n8n so information moves automatically between tools while HR keeps control of shortlist and reject decisions.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-pills" aria-label="Tools used">
+            <span>n8n</span><span>Google Forms</span><span>Google Sheets</span><span>n8n AI Agent</span><span>Gemini Chat Bot</span><span>Gmail</span><span>Telegram</span><span>Webhooks</span><span>Google Apps Script</span>
+          </div>
+
+          <div class="project-meta">
+            <div><span>INDUSTRY</span><strong>HR &amp; Recruiting Services</strong></div>
+            <div><span>ESTIMATED SOLUTION VALUE</span><strong>$400–$600</strong></div>
+            <div><span>PROJECT DURATION</span><strong>7–30 days</strong></div>
+          </div>
+          <p class="project-note">The value shown is an estimate for this self-initiated portfolio solution, not a client payment.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section gig-section" id="gigs" aria-labelledby="gig-title">
+      <div class="container">
+        <div class="section-heading gig-heading">
+          <p class="eyebrow">02 / FIVERR</p>
+          <h2 id="gig-title">Check out my gig!</h2>
+        </div>
+        <a class="gig-card hover-pop" href="https://www.fiverr.com/nazmulislam97/build-n8n-workflow-automation-and-api-integrations" target="_blank" rel="noopener noreferrer">
+          <div class="gig-image">
+            <img src="assets/fiverr-gig-thumbnail.jpg" alt="Fiverr gig thumbnail for n8n workflow automation">
+          </div>
+          <div class="gig-copy">
+            <div class="gig-topline"><span>FIVERR GIG</span><span aria-hidden="true">↗</span></div>
+            <h3>I will build n8n workflow, API integrations, AI automation</h3>
+            <div class="tool-pills gig-tags">
+              <span>n8n workflow</span><span>business automation</span><span>n8n automation</span><span>workflow automation</span><span>AI automation</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">03 / APPROACH</p>
+          <h2 id="about-title">Problem solver first. Automation builder second.</h2>
+        </div>
+        <div class="about-grid">
+          <p class="about-lead">I start with the process - not the tool.</p>
+          <p class="about-copy">I map repetitive work, decisions, exceptions, and handoffs before building the workflow. The goal is not automation for its own sake, it is a system that is useful, understandable, and maintainable.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <p class="eyebrow">04 / START A PROJECT</p>
+        <h2 id="contact-title">Have a process that should run smarter?</h2>
+        <p>Tell me what takes too much time. Let's map a cleaner system.</p>
+        <a class="primary-cta"
+            href="mailto:ifahim5@gmail.com?subject=Automation%20Project%20Inquiry&body=Hi%20Nazmul%2C%0A%0AI%20would%20like%20to%20discuss%20an%20automation%20project.">
+        START A CONVERSATION <span aria-hidden="true">↗</span>
+        </a>
+        <div class="profile-links" aria-label="Professional profiles">
+          <a class="hover-pop" href="https://www.linkedin.com/in/nazmul-islam-fahim-89650a194" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.4H3.2V19h3.3V8.4ZM4.85 3A1.92 1.92 0 1 0 4.85 6.84 1.92 1.92 0 0 0 4.85 3ZM20.8 12.93c0-3.2-1.7-4.69-3.98-4.69-1.83 0-2.65 1.01-3.11 1.72V8.4h-3.3V19h3.3v-5.25c0-1.38.26-2.72 1.98-2.72 1.69 0 1.71 1.58 1.71 2.81V19h3.4v-6.07Z" fill="currentColor"/></svg><span>LINKEDIN</span><b aria-hidden="true">↗</b>
+          </a>
+          <a class="hover-pop" href="https://www.fiverr.com/nazmulislam97" target="_blank" rel="noopener noreferrer" aria-label="Fiverr gig">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.85 8.15h-7.02V7.7c0-.88.88-.9 1.33-.9h1.36V3.95h-1.75c-3.17 0-4.66 1.64-4.66 3.82v.38H5.15V11h2.96v8.9h3.72V11h3.34v8.9h3.68V8.15Zm-1.84-4.06a2.04 2.04 0 1 0 0 4.08 2.04 2.04 0 0 0 0-4.08Z" fill="currentColor"/></svg><span>FIVERR</span><b aria-hidden="true">↗</b>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Nazmul Islam Fahim. All rights reserved.</span>
+    <span>AI AUTOMATION / N8N</span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

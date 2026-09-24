@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inazfps.github.io/sitemap.xml

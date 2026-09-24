@@ -1,4 +1,3 @@
-
 :root{
   color-scheme:dark;
   --bg:#030814;
@@ -71,7 +70,7 @@ body.is-loading > :not(.loader):not(.skip-link){visibility:hidden}
 .loader.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
 .loader__inner{width:min(560px,86vw);text-align:center}
 .loader__eyebrow{margin:0 0 14px;color:#69d9ff;font:600 9px Space Grotesk,sans-serif;letter-spacing:.22em}
-.loader h1{margin:0;font:600 clamp(28px,5vw,48px)/1.05 Space Grotesk,sans-serif;letter-spacing:-.035em}
+.loader__title{margin:0;font:600 clamp(28px,5vw,48px)/1.05 Space Grotesk,sans-serif;letter-spacing:-.035em}
 .loader__status{margin:14px 0 0;color:#75869d;font-size:13px}
 .loader__bar{height:1px;margin:34px 0 30px;background:#172033;overflow:hidden}
 .loader__bar i{display:block;width:0;height:100%;background:linear-gradient(90deg,#1688ff,#73e0ff);transition:width .12s linear}
@@ -157,9 +156,7 @@ body.light .hero-glow{background:radial-gradient(circle,rgba(8,118,223,.2),rgba(
 .hero-photo{
   position:relative;z-index:1;display:block;width:min(43vw,610px);max-height:790px;
   object-fit:contain;object-position:center bottom;
-  filter:drop-shadow(0 30px 55px rgba(0,0,0,.3));
 }
-body.light .hero-photo{filter:drop-shadow(0 28px 48px rgba(35,65,88,.16))}
 .hero-copy{position:relative;z-index:2;min-width:0}
 .kicker{margin:0 0 20px;color:var(--cyan);font:600 10px Space Grotesk,sans-serif;letter-spacing:.22em}
 .hero h1{
@@ -175,7 +172,6 @@ body.light .hero-photo{filter:drop-shadow(0 28px 48px rgba(35,65,88,.16))}
 body.light .hero h1 > .hero-outline{-webkit-text-stroke:1.9px rgba(15,48,78,.76);color:rgba(15,48,78,.025)}
 .hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;max-width:760px;margin-top:34px}
 .hero-bottom p{max-width:510px;margin:0;color:var(--muted);font-size:14px;line-height:1.7}
-.scroll-note{flex:0 0 auto;color:#587c9e;font:600 9px Space Grotesk,sans-serif;letter-spacing:.14em}
 
 /* Project */
 .project-card,.gig-card{
@@ -286,7 +282,7 @@ footer{
   .gig-copy{padding:25px 23px 28px}
   .gig-copy h3{font-size:clamp(24px,6.7vw,34px)}
   .hero-bottom{display:block}
-  .scroll-note{display:block;margin-top:20px}
+  
   footer{flex-wrap:wrap;font-size:9px}
 }
 @media(max-width:430px){
@@ -310,9 +306,7 @@ footer{
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
 
-/* ================================================================
-   V1.01 - SECTION RHYTHM + SOCIAL ICON POLISH
-   ================================================================ */
+
 
 /* Hero no longer needs the scroll prompt occupying the right side. */
 .hero-bottom{
@@ -340,7 +334,7 @@ footer{
   padding-bottom:clamp(145px,18vh,220px)!important;
 }
 
-/* LinkedIn / Fiverr: icon + label + arrow, evenly spaced. */
+/* LinkedIn / Fiverr: icon + label, evenly spaced. */
 .profile-links{
   display:flex!important;
   justify-content:center!important;
@@ -365,15 +359,6 @@ footer{
 }
 .profile-links a span{
   line-height:1!important;
-}
-.profile-links a b{
-  flex:0 0 auto!important;
-  margin-left:1px!important;
-  font:700 11px/1 Inter,sans-serif!important;
-  transition:transform .2s ease!important;
-}
-.profile-links a:hover b{
-  transform:translate(2px,-2px)!important;
 }
 
 @media(max-width:760px){
@@ -417,114 +402,7 @@ footer{
 }
 
 
-/* ================================================================
-   V1.01 - HERO TYPOGRAPHY + MOBILE PHOTO POSITION
-   ================================================================ */
 
-/* Slightly stronger hero typography on desktop without changing layout. */
-.kicker{
-  font-size:12px!important;
-}
-.hero h1{
-  font-size:clamp(74px,9.6vw,160px)!important;
-}
-.hero-bottom p{
-  max-width:610px!important;
-  font-size:16px!important;
-  line-height:1.75!important;
-}
-
-/* Keep enough room in the hero copy for another 2–3 lines later. */
-.hero-copy{
-  padding-block:28px!important;
-}
-
-/* Tablet/mobile: keep text prominent and deliberately push portrait lower. */
-@media(max-width:900px){
-  .hero{
-    align-content:start!important;
-  }
-  .hero-copy{
-    padding-block:22px 0!important;
-  }
-  .kicker{
-    font-size:10.5px!important;
-    line-height:1.5!important;
-  }
-  .hero h1{
-    font-size:clamp(58px,16.4vw,108px)!important;
-    line-height:.88!important;
-  }
-  .hero-bottom{
-    margin-top:28px!important;
-    max-width:680px!important;
-  }
-  .hero-bottom p{
-    max-width:620px!important;
-    font-size:15px!important;
-    line-height:1.72!important;
-  }
-
-  /* Extra vertical breathing room reserved above the portrait.
-     This leaves space for roughly 2–3 additional hero-copy lines. */
-  .hero-photo-wrap{
-    margin-top:82px!important;
-    min-height:470px!important;
-  }
-}
-
-/* Phone-specific balance. */
-@media(max-width:760px){
-  .hero{
-    padding-top:104px!important;
-  }
-  .hero-copy{
-    padding-top:18px!important;
-  }
-  .kicker{
-    font-size:10px!important;
-    letter-spacing:.17em!important;
-    margin-bottom:16px!important;
-  }
-  .hero h1{
-    font-size:clamp(54px,16vw,76px)!important;
-  }
-  .hero-bottom{
-    margin-top:26px!important;
-  }
-  .hero-bottom p{
-    font-size:14px!important;
-    line-height:1.72!important;
-  }
-  .hero-photo-wrap{
-    margin-top:92px!important;
-    min-height:455px!important;
-  }
-}
-
-/* Narrow phones */
-@media(max-width:430px){
-  .hero{
-    padding-top:98px!important;
-  }
-  .hero h1{
-    font-size:clamp(52px,15.9vw,69px)!important;
-  }
-  .hero-bottom p{
-    font-size:13.5px!important;
-    line-height:1.72!important;
-  }
-  .hero-photo-wrap{
-    margin-top:96px!important;
-    min-height:430px!important;
-  }
-}
-
-
-/* ================================================================
-   V1.01 - CONSISTENT HOVER / TOUCH POP INTERACTIONS
-   Matches the lift/glow language of START A CONVERSATION.
-   ================================================================ */
 
 .hover-pop{
   will-change:transform,box-shadow,border-color;
@@ -599,250 +477,107 @@ footer{
 }
 
 
-/* ================================================================
-   V1.01 - PROFESSIONAL DISPLAY TYPOGRAPHY RHYTHM
-   Fixes cramped line spacing in large multi-line headings.
-   ================================================================ */
+/* SEO + GEO edition: crawlable case-study link */
+.case-study-link{display:inline-flex;align-items:center;gap:10px;margin-top:22px;color:var(--cyan);font:600 12px/1.2 "Space Grotesk",sans-serif;letter-spacing:.12em;text-decoration:none}
+.case-study-link:hover{text-decoration:underline;text-underline-offset:5px}
 
-/* Hero name: outlined second line was visually too close to NAZMUL. */
-.hero h1{
-  line-height:.90!important;
-}
-.hero h1 > .hero-outline{
-  margin-top:.075em!important;
-  line-height:.90!important;
-}
 
-/* Section display headings: slightly more breathing room between lines.
-   Keep the tight editorial look without glyphs visually colliding. */
-.section-heading h2,
-.contact-inner h2{
-  line-height:1.035!important;
-  letter-spacing:-.048em!important;
+.profile-links a{
+  color:color-mix(in srgb,var(--text) 88%,var(--muted))!important;
+  border-color:color-mix(in srgb,var(--cyan) 30%,var(--line))!important;
+  background:color-mix(in srgb,var(--panel) 82%,transparent)!important;
+  box-shadow:inset 0 1px 0 color-mix(in srgb,var(--text) 5%,transparent),0 8px 28px rgba(0,0,0,.10)!important;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
 }
-
-/* The Approach heading has large all-caps stacked lines, so give it
-   a touch more leading than the other display headings. */
-.about-section .section-heading h2{
-  line-height:1.07!important;
-  letter-spacing:-.046em!important;
-  max-width:1040px!important;
+.profile-links a svg,.profile-links a b{color:var(--cyan)!important}
+body.light .profile-links a{
+  color:var(--text)!important;
+  background:rgba(255,255,255,.72)!important;
+  border-color:color-mix(in srgb,var(--blue) 24%,var(--line))!important;
+  box-shadow:0 8px 24px rgba(38,73,104,.08)!important;
 }
 
-/* Featured Automation Project: balanced two-line wrap and spacing. */
-.portfolio-section .section-heading h2{
-  line-height:1.04!important;
-  max-width:1050px!important;
+
+
+/* Single-word hero typography: no per-letter spans or kerning hacks. */
+.hero h1{font-kerning:normal!important;font-feature-settings:"kern" 1!important;letter-spacing:-.052em!important;line-height:.86!important}
+.hero h1 .hero-name-solid,.hero h1 .hero-outline{display:block!important;white-space:nowrap}
+.hero h1 .hero-name-solid{letter-spacing:-.015em!important}
+.hero h1 .hero-outline{letter-spacing:.005em!important;margin-top:.055em!important}
+
+/* Portrait: positioning only. No CSS fade, mask, gradient, clipping, or image filter. */
+.hero-photo{filter:none!important;-webkit-mask:none!important;mask:none!important;clip-path:none!important;background:transparent!important;border:0!important;box-shadow:none!important}
+body.light .hero-photo{filter:none!important}
+.hero-photo-wrap::before,.hero-photo-wrap::after{content:none!important;display:none!important}
+
+/* Rebalance desktop hero toward the visual center. */
+.hero{width:min(1600px,100%);margin-inline:auto;grid-template-columns:minmax(390px,.92fr) minmax(520px,1.08fr);gap:clamp(38px,5vw,88px);padding-left:clamp(52px,7vw,118px)!important;padding-right:clamp(52px,7vw,118px)!important}
+.hero-photo-wrap{justify-content:flex-end!important}
+.hero-photo{width:min(39vw,590px)!important}
+.hero-copy{padding-left:clamp(0px,1vw,18px)!important}
+
+/* Navigation readability + FIVERR label. */
+.site-nav a{font-size:10.5px!important;letter-spacing:.075em!important;padding-inline:9px!important}
+
+/* No arrow UI. */
+.case-study-link{gap:0!important}
+
+/* Matching premium pop interaction for CTA, socials, portfolio and gig card. */
+.primary-cta,.profile-links a.hover-pop,.project-card.hover-pop,.gig-card.hover-pop{will-change:transform,box-shadow}
+.primary-cta{transition:transform .26s cubic-bezier(.22,.61,.36,1),box-shadow .3s ease,background .25s ease!important}
+.profile-links a.hover-pop{transition:transform .26s cubic-bezier(.22,.61,.36,1),box-shadow .3s ease,border-color .25s ease,background .25s ease,color .25s ease!important}
+.project-card.hover-pop,.gig-card.hover-pop{transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .34s ease,border-color .28s ease,background-color .65s ease!important}
+@media(hover:hover) and (pointer:fine){
+ .primary-cta:hover{transform:translateY(-4px) scale(1.025)!important;box-shadow:0 16px 52px rgba(75,188,255,.3)!important}
+ .profile-links a.hover-pop:hover{transform:translateY(-4px) scale(1.035)!important;box-shadow:0 13px 38px color-mix(in srgb,var(--cyan) 18%,transparent)!important}
+ .project-card.hover-pop:hover,.gig-card.hover-pop:hover{transform:translateY(-7px) scale(1.008)!important;border-color:color-mix(in srgb,var(--cyan) 62%,transparent)!important;box-shadow:0 24px 68px rgba(0,0,0,.22),0 0 34px color-mix(in srgb,var(--cyan) 12%,transparent)!important}
 }
 
-/* Desktop hero keeps the dramatic scale but gains clean separation. */
+/* Fiverr click cue: clear, professional, not pushy. */
+.gig-availability{display:inline-flex;align-items:center;gap:7px;color:var(--muted);letter-spacing:.1em}
+.gig-availability i{width:6px;height:6px;border-radius:50%;background:#56dc86;box-shadow:0 0 12px rgba(86,220,134,.55)}
+.gig-click-cue{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.gig-click-cue span{color:var(--cyan);font:700 11px Space Grotesk,sans-serif;letter-spacing:.12em}
+.gig-click-cue small{color:var(--muted);font-size:11px;line-height:1.5}
+.gig-card:hover .gig-click-cue span{color:var(--text)}
+
+/* Desktop Fiverr card: match outer card height exactly to thumbnail height. */
 @media(min-width:901px){
-  .hero h1{
-    line-height:.89!important;
-  }
-  .hero h1 > .hero-outline{
-    margin-top:.085em!important;
-  }
+ .gig-card{align-items:stretch!important;grid-template-columns:1fr 1fr!important}
+ .gig-image{align-self:stretch!important;aspect-ratio:4000/2416!important;height:auto!important}
+ .gig-copy{height:100%!important;box-sizing:border-box!important;padding:clamp(20px,2.2vw,34px)!important}
 }
 
-/* Mobile headings need proportionally more leading because lines wrap sooner. */
+/* Normal mobile: centered stacked composition. Desktop-site mode (typically >= 900 CSS px) uses the balanced two-column layout above. */
 @media(max-width:900px){
-  .hero h1{
-    line-height:.91!important;
-  }
-  .hero h1 > .hero-outline{
-    margin-top:.09em!important;
-  }
-  .section-heading h2,
-  .contact-inner h2{
-    line-height:1.06!important;
-    letter-spacing:-.043em!important;
-  }
-  .about-section .section-heading h2{
-    line-height:1.085!important;
-  }
+ .hero{width:100%;grid-template-columns:1fr!important;padding-left:20px!important;padding-right:20px!important}
+ .hero-copy{padding-left:0!important}
+ .hero-photo-wrap{justify-content:center!important}
+ .hero-photo{width:min(82vw,500px)!important}
+ .site-nav a{font-size:8.4px!important;padding-inline:4px!important}
 }
-
 @media(max-width:430px){
-  .hero h1{
-    line-height:.92!important;
-  }
-  .hero h1 > .hero-outline{
-    margin-top:.10em!important;
-  }
-  .section-heading h2,
-  .contact-inner h2{
-    line-height:1.075!important;
-    letter-spacing:-.04em!important;
-  }
-  .about-section .section-heading h2{
-    line-height:1.095!important;
-  }
+ .site-nav a{font-size:7.4px!important;letter-spacing:.035em!important;padding-inline:2px!important}
+ .site-nav i{width:4px!important}
+ .gig-topline{align-items:center;gap:10px}
+ .gig-availability{font-size:7.5px}
 }
 
 
-/* ================================================================
-   V1.01 - OPTICAL KERNING FOR HERO NAME
-   Fix only the visibly loose AZ and LA pairs.
-   ================================================================ */
-.hero h1 .kern-pair{
-  display:inline!important;
-  color:inherit!important;
-  -webkit-text-stroke:inherit!important;
-  margin:0!important;
-  line-height:inherit!important;
+/* Touch behavior */
+html,body,a,button,[role="button"],.brand,.site-nav,.site-nav *,.hero,.hero *{
+  -webkit-tap-highlight-color:transparent;
 }
-
-/* Pull Z toward A without changing the rest of NAZMUL. */
-.hero h1 .kern-az{
-  letter-spacing:-.095em!important;
-  margin-right:.095em!important;
+.brand,.site-nav a,.hero h1,.hero h1 *,.hero-kicker{
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  user-select:none;
 }
-
-/* Pull A toward L without changing the rest of ISLAM. */
-.hero h1 .kern-la{
-  letter-spacing:-.085em!important;
-  margin-right:.085em!important;
+a:focus:not(:focus-visible),button:focus:not(:focus-visible),[role="button"]:focus:not(:focus-visible){
+  outline:none;
 }
-
-/* Keep the outlined second line styling isolated from kerning spans. */
-.hero h1 > .hero-outline{
-  display:block!important;
-}
-
-
-/* ================================================================
-   V1.01 - HERO NAME PAIR SPACING CORRECTION
-   Increase (not tighten) the requested AZ and LA gaps.
-   ================================================================ */
-
-/* NAZMUL: increase space between A and Z */
-.hero h1 .kern-az{
-  letter-spacing:.035em!important;
-  margin-right:-.035em!important;
-}
-
-/* ISLAM: increase space between L and A */
-.hero h1 .kern-la{
-  letter-spacing:.04em!important;
-  margin-right:-.04em!important;
-}
-
-
-/* ================================================================
-   V7.8 — BALANCED HERO NAME PAIR SPACING
-   Middle ground: visible separation without looking disconnected.
-   ================================================================ */
-
-/* NAZMUL — A ↔ Z */
-.hero h1 .kern-az{
-  letter-spacing:.018em!important;
-  margin-right:-.018em!important;
-}
-
-/* ISLAM — L ↔ A */
-.hero h1 .kern-la{
-  letter-spacing:.021em!important;
-  margin-right:-.021em!important;
-}
-
-
-/* ================================================================
-   V7.9 — FINAL OPTICAL NAME SPACING
-   Independently tunes the four requested gaps.
-   ================================================================ */
-
-.hero h1 .hero-letter{
-  display:inline!important;
-  color:inherit!important;
-  -webkit-text-stroke:inherit!important;
-  letter-spacing:normal!important;
-  line-height:inherit!important;
-}
-
-/* NAZMUL:
-   A–Z: slightly less than V7.8, but still visibly open.
-   Z–M: slightly tightened to visually match A–Z. */
-.hero h1 .hero-a1{
-  margin-right:.010em!important;
-}
-.hero h1 .hero-z{
-  margin-right:-.018em!important;
-}
-
-/* ISLAM:
-   L–A: slightly less than V7.8, still safely separated.
-   A–M: slightly tightened for a more even word rhythm. */
-.hero h1 .hero-l{
-  margin-right:.012em!important;
-}
-.hero h1 .hero-a2{
-  margin-right:-.014em!important;
-}
-
-/* Neutralize the older pair rules if cached/retained in the stylesheet. */
-.hero h1 .kern-az,
-.hero h1 .kern-la{
-  letter-spacing:normal!important;
-  margin-right:0!important;
-}
-
-
-/* ================================================================
-   V7.10 — NAZMUL M–U / U–L OPTICAL BALANCE
-   Move U toward M, then compensate L so U–L does not open up.
-   ================================================================ */
-
-/* Tighten M–U. */
-.hero h1 .hero-m1{
-  margin-right:-.020em!important;
-}
-
-/* Keep U–L visually balanced after moving U toward M. */
-.hero h1 .hero-u1{
-  margin-right:-.020em!important;
-}
-
-/* L remains neutral; the U-side adjustment carries it visually with U. */
-.hero h1 .hero-l1{
-  margin-right:0!important;
-}
-
-
-/* ================================================================
-   V7.11 — PROFESSIONAL OPTICAL KERNING PASS
-   Balanced by eye for the actual Space Grotesk display rendering.
-   ================================================================ */
-
-/* Reset the previous experimental offsets first. */
-.hero h1 .hero-a1,
-.hero h1 .hero-z,
-.hero h1 .hero-m1,
-.hero h1 .hero-u1,
-.hero h1 .hero-l1,
-.hero h1 .hero-l,
-.hero h1 .hero-a2,
-.hero h1 .hero-m2{
-  margin-left:0!important;
-  margin-right:0!important;
-}
-
-/* NAZMUL
-   Keep the angular A/Z pair open enough to breathe,
-   then progressively tighten the visually wider Z/M and M/U joins. */
-.hero h1 .hero-a1{ margin-right:.004em!important; }   /* A–Z */
-.hero h1 .hero-z { margin-right:-.024em!important; }  /* Z–M */
-.hero h1 .hero-m1{ margin-right:-.030em!important; }  /* M–U */
-.hero h1 .hero-u1{ margin-right:-.018em!important; }  /* U–L */
-
-/* ISLAM
-   L/A naturally creates a large white wedge, so tighten gently;
-   A/M gets a smaller correction to keep the rhythm even. */
-.hero h1 .hero-l { margin-right:.004em!important; }   /* L–A */
-.hero h1 .hero-a2{ margin-right:-.018em!important; }  /* A–M */
-
-/* Preserve native font kerning everywhere else. */
-.hero h1{
-  font-kerning:normal!important;
-  font-feature-settings:"kern" 1!important;
+a:focus-visible,button:focus-visible,[role="button"]:focus-visible{
+  outline:2px solid currentColor;
+  outline-offset:4px;
 }

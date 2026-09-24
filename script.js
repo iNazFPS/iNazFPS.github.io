@@ -8,32 +8,6 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 $('#year').textContent = new Date().getFullYear();
 
-/* Loader */
-const loader = $('#loader');
-const bar = $('#bar');
-const loadText = $('#loadText');
-const start = $('#start');
-let pct = 0;
-const loading = setInterval(() => {
-  pct = Math.min(100, pct + Math.ceil(Math.random() * 13));
-  bar.style.width = `${pct}%`;
-  loadText.textContent = `Building automation world… ${pct}%`;
-  if (pct >= 100) {
-    clearInterval(loading);
-    loadText.textContent = 'System ready.';
-    start.disabled = false;
-  }
-}, 85);
-
-start.addEventListener('click', () => {
-  document.body.classList.remove('is-loading');
-  loader.classList.add('is-hidden');
-  if (gsap && !reduceMotion) {
-    gsap.from('.hero-copy > *', {opacity:0, y:24, stagger:.1, duration:.8, ease:'power3.out'});
-    gsap.from('.hero-photo', {opacity:0, y:18, duration:.9, ease:'power3.out'});
-  }
-});
-
 /* Theme */
 const themeToggle = $('#themeToggle');
 const themeMeta = $('meta[name="theme-color"]');

@@ -58,15 +58,14 @@ themeToggle.addEventListener('click', () => {
 });
 
 /* Navigation */
-const navLinks = $$('.site-nav a[data-scroll-target]');
+const navLinks = $$('.site-nav [data-scroll-target]');
 const sections = ['home','portfolio','fiverr','about','contact']
   .map(id => document.getElementById(id))
   .filter(Boolean);
 const sectionLinkMap = new Map(navLinks.map(link => [link.dataset.scrollTarget, link]));
 
 navLinks.forEach(link => {
-  link.addEventListener('click', event => {
-    event.preventDefault();
+  link.addEventListener('click', () => {
     const targetId = link.dataset.scrollTarget;
     const section = document.getElementById(targetId);
     if (!section) return;
@@ -78,10 +77,6 @@ navLinks.forEach(link => {
         behavior:reduceMotion ? 'auto' : 'smooth',
         block:'start'
       });
-    }
-
-    if (location.hash) {
-      history.replaceState(null, '', location.pathname + location.search);
     }
   });
 });

@@ -98,12 +98,12 @@ body.is-loading > :not(.loader):not(.skip-link){visibility:hidden}
 .brand{color:var(--text);text-decoration:none;font:700 20px Space Grotesk,sans-serif;letter-spacing:-.03em}
 .brand span{color:var(--cyan)}
 .header-actions,.site-nav{display:flex;align-items:center}
-.site-nav a{
+.site-nav :is(a,button){
   padding:9px 8px;color:var(--muted);text-decoration:none;
   font:700 9px Space Grotesk,sans-serif;letter-spacing:.08em;
   white-space:nowrap;transition:color .2s ease;
 }
-.site-nav a:hover,.site-nav a.active{color:var(--cyan)}
+.site-nav :is(a,button):hover,.site-nav :is(a,button).active{color:var(--cyan)}
 .site-nav i{width:18px;height:1px;background:linear-gradient(90deg,rgba(105,217,255,.2),rgba(105,217,255,.7))}
 .theme-toggle{
   width:38px;height:38px;margin-left:12px;border:1px solid var(--line);border-radius:50%;
@@ -267,7 +267,7 @@ footer{
   .brand{font-size:14px}
   .theme-toggle{width:31px;height:31px;margin-left:5px}
   .theme-toggle svg{width:15px;height:15px}
-  .site-nav a{padding:6px 3px;font-size:6.8px;letter-spacing:.035em}
+  .site-nav :is(a,button){padding:6px 3px;font-size:6.8px;letter-spacing:.035em}
   .site-nav i{width:5px}
   .section{padding:84px 0}
   .section-heading{margin-bottom:25px}
@@ -287,7 +287,7 @@ footer{
 }
 @media(max-width:430px){
   .container{width:calc(100% - 34px)}
-  .site-nav a{font-size:6.2px;padding-inline:2px}
+  .site-nav :is(a,button){font-size:6.2px;padding-inline:2px}
   .site-nav i{width:3px}
   .hero{padding-top:94px}
   .hero h1{font-size:clamp(49px,15.5vw,68px)}
@@ -518,7 +518,7 @@ body.light .hero-photo{filter:none!important}
 .hero-copy{padding-left:clamp(0px,1vw,18px)!important}
 
 /* Navigation readability + FIVERR label. */
-.site-nav a{font-size:10.5px!important;letter-spacing:.075em!important;padding-inline:9px!important}
+.site-nav :is(a,button){font-size:10.5px!important;letter-spacing:.075em!important;padding-inline:9px!important}
 
 /* No arrow UI. */
 .case-study-link{gap:0!important}
@@ -555,10 +555,10 @@ body.light .hero-photo{filter:none!important}
  .hero-copy{padding-left:0!important}
  .hero-photo-wrap{justify-content:center!important}
  .hero-photo{width:min(82vw,500px)!important}
- .site-nav a{font-size:8.4px!important;padding-inline:4px!important}
+ .site-nav :is(a,button){font-size:8.4px!important;padding-inline:4px!important}
 }
 @media(max-width:430px){
- .site-nav a{font-size:7.4px!important;letter-spacing:.035em!important;padding-inline:2px!important}
+ .site-nav :is(a,button){font-size:7.4px!important;letter-spacing:.035em!important;padding-inline:2px!important}
  .site-nav i{width:4px!important}
  .gig-topline{align-items:center;gap:10px}
  .gig-availability{font-size:7.5px}
@@ -569,7 +569,7 @@ body.light .hero-photo{filter:none!important}
 html,body,a,button,[role="button"],.brand,.site-nav,.site-nav *,.hero,.hero *{
   -webkit-tap-highlight-color:transparent;
 }
-.brand,.site-nav a,.hero h1,.hero h1 *,.hero-kicker{
+.brand,.site-nav :is(a,button),.hero h1,.hero h1 *,.hero-kicker{
   -webkit-touch-callout:none;
   -webkit-user-select:none;
   user-select:none;
@@ -578,6 +578,51 @@ a:focus:not(:focus-visible),button:focus:not(:focus-visible),[role="button"]:foc
   outline:none;
 }
 a:focus-visible,button:focus-visible,[role="button"]:focus-visible{
+  outline:2px solid currentColor;
+  outline-offset:4px;
+}
+
+/* Mobile interaction hardening: no tap rectangle, no accidental text-selection flash. */
+*{
+  -webkit-tap-highlight-color:transparent;
+}
+.site-nav button{
+  appearance:none;
+  -webkit-appearance:none;
+  border:0;
+  margin:0;
+  padding:0;
+  background:none;
+  color:inherit;
+  font:inherit;
+  letter-spacing:inherit;
+  cursor:pointer;
+}
+.site-header,
+.site-header *,
+.hero h1,
+.hero h1 *,
+.hero-kicker,
+.loader,
+.loader *,
+.section-kicker,
+.section-title,
+.section-title *{
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  user-select:none;
+}
+.site-nav button:active,
+.site-nav button:focus:not(:focus-visible),
+.brand:active,
+.hero h1:active,
+.hero h1 *:active,
+.loader:active,
+.loader *:active{
+  outline:none;
+  box-shadow:none;
+}
+.site-nav button:focus-visible{
   outline:2px solid currentColor;
   outline-offset:4px;
 }
